@@ -4,7 +4,7 @@ node 'default'
     include supervisord
 
     service {
-        ['nginx', 'crond', 'php70-php-fpm']:
+        ['nginx', 'crond', 'php56-php-fpm']:
             enable => true;
     }
 
@@ -28,10 +28,10 @@ node 'default'
             ensure => link,
             target => '/var/www/vhosts/moodle-dev.kent.ac.uk/sp/simplesamlphp/www';
 
-        '/etc/opt/remi/php70/php-fpm.d/www.conf':
+        '/opt/remi/php56/root/etc/php-fpm.d/www.conf':
             ensure => absent;
 
-        '/etc/opt/remi/php70/php-fpm.d/moodle-dev.kent.ac.uk.conf':
+        '/opt/remi/php56/root/etc/php-fpm.d/moodle-dev.kent.ac.uk.conf':
             ensure => present,
             source => 'puppet:///modules/webfarm/moodle-pool.conf';
     }
