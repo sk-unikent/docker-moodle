@@ -1,0 +1,19 @@
+[program:=<%= @workername %>]
+command=<%= @command %>
+process_name=<%= @workername %>-%(process_num)s
+user=<%= @runas %>
+priority=<%= @priority %>
+numprocs=<%= @numprocs %>
+autostart=true
+autorestart=true
+stdout_logfile=/var/log/supervisor/<%= @workername %>-worker.out.log
+stdout_logfile_maxbytes=100MB
+stdout_logfile_backups=10
+stdout_capture_maxbytes=1MB
+stdout_events_enabled=false
+stderr_logfile=/var/log/supervisor/<%= @workername %>-worker.err.log
+stderr_logfile_maxbytes=10MB
+stderr_logfile_backups=10
+stderr_capture_maxbytes=1MB
+stderr_events_enabled=false
+startsecs=<%= @startsecs %>

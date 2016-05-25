@@ -1,0 +1,128 @@
+{
+   "admin":{
+      "password":"Password-1",
+      "uid":"admin",
+      "givenName":"Admin",
+      "sn":"User",
+      "mail":"i@am.admin",
+      "unikentaccountType":"staff",
+      "unikentdepartment": "IS Admin"
+   },
+   "skylark":{
+      "password":"Password-1",
+      "uid":"skylark",
+      "givenName":"Skylar",
+      "sn":"Kelty",
+      "mail":"S.Kelty@kent.ac.uk",
+      "unikentaccountType":"staff",
+      "unikentdepartment": "IS Development"
+   },
+   "jake":{
+      "password":"Password-1",
+      "uid":"jake",
+      "givenName":"Jake",
+      "sn":"Blatchford",
+      "mail":"jb624@kent.ac.uk",
+      "unikentaccountType":"staff",
+      "unikentdepartment": "IS Development"
+   },
+   "helpdeskuser":{
+      "password":"Password-1",
+      "uid":"helpdeskuser",
+      "givenName":"Helpdesk",
+      "sn":"User",
+      "mail":"i@am.helpdesk",
+      "unikentaccountType":"staff",
+      "unikentdepartment": "IS Helpdesk"
+   },
+   "depdmin":{
+      "password":"Password-1",
+      "uid":"depdmin",
+      "givenName":"Dep",
+      "sn":"Admin",
+      "mail":"i@am.cla",
+      "unikentaccountType":"staff",
+      "unikentdepartment": "IS Testing"
+   },
+   "cladmin":{
+      "password":"Password-1",
+      "uid":"cladmin",
+      "givenName":"CLA",
+      "sn":"Admin",
+      "mail":"i@am.cla",
+      "unikentaccountType":"staff",
+      "unikentdepartment": "IS Testing"
+   },
+   "convenor":{
+      "password":"Password-1",
+      "uid":"convenor",
+      "givenName":"Fake",
+      "sn":"Convenor",
+      "mail":"i@am.fake",
+      "unikentaccountType":"staff",
+      "unikentdepartment": "IS Testing"
+   },
+   "teacher":{
+      "password":"Password-1",
+      "uid":"teacher",
+      "givenName":"Fake",
+      "sn":"Teacher",
+      "mail":"i@am.fake",
+      "unikentaccountType":"staff",
+      "unikentdepartment": "IS Testing"
+   },
+   "teacher2":{
+      "password":"Password-1",
+      "uid":"teacher2",
+      "givenName":"Fake",
+      "sn":"Teacher 2",
+      "mail":"i@am.fake",
+      "unikentaccountType":"staff",
+      "unikentdepartment": "IS Testing"
+   },
+   "student":{
+      "password":"Password-1",
+      "uid":"student",
+      "givenName":"Fake",
+      "sn":"Student",
+      "mail":"i@am.fake",
+      "unikentaccountType":"ugtstudent",
+      "unikentdepartment": "IS Testing"
+   },
+   "student2":{
+      "password":"Password-1",
+      "uid":"student2",
+      "givenName":"Fake",
+      "sn":"Student 2",
+      "mail":"i@am.fake",
+      "unikentaccountType":"ugtstudent",
+      "unikentdepartment": "IS Testing"
+   },
+   "student3":{
+      "password":"Password-1",
+      "uid":"student3",
+      "givenName":"Fake",
+      "sn":"Student 3",
+      "mail":"i@am.fake",
+      "unikentaccountType":"ugtstudent",
+      "unikentdepartment": "IS Testing"
+   },
+   "student4":{
+      "password":"Password-1",
+      "uid":"student4",
+      "givenName":"Fake",
+      "sn":"Student 4",
+      "mail":"i@am.fake",
+      "unikentaccountType":"ugtstudent",
+      "unikentdepartment": "IS Testing"
+   },
+   "student5":{
+      "password":"Password-1",
+      "uid":"student5",
+      "givenName":"Fake",
+      "sn":"Student 5",
+      "mail":"i@am.fake",
+      "unikentaccountType":"ugtstudent",
+      "unikentdepartment": "IS Testing"
+   }
+}
