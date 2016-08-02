@@ -24,6 +24,10 @@ node 'default'
             ensure => link,
             target => '/data/future';
 
+        '/var/www/vhosts/moodle-dev.kent.ac.uk/public/cla':
+            ensure => link,
+            target => '/data/cla/public';
+
         '/var/www/vhosts/moodle-dev.kent.ac.uk/public/_sp':
             ensure => link,
             target => '/var/www/vhosts/moodle-dev.kent.ac.uk/sp/simplesamlphp/www';
