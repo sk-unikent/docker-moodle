@@ -16,6 +16,10 @@ node 'default'
             ensure => present,
             source => 'puppet:///modules/webfarm/moodle-dev.kent.ac.uk.conf';
 
+        '/etc/nginx/conf.d/learninglocker-dev.kent.ac.uk.conf':
+            ensure => present,
+            source => 'puppet:///modules/webfarm/learninglocker-dev.kent.ac.uk.conf';
+
         '/var/www/vhosts/moodle-dev.kent.ac.uk/public/current':
             ensure => link,
             target => '/data/current';
@@ -23,10 +27,6 @@ node 'default'
         '/var/www/vhosts/moodle-dev.kent.ac.uk/public/future':
             ensure => link,
             target => '/data/future';
-
-        '/var/www/vhosts/moodle-dev.kent.ac.uk/public/learninglocker':
-            ensure => link,
-            target => '/data/learninglocker/public';
 
         '/var/www/vhosts/moodle-dev.kent.ac.uk/public/cla':
             ensure => link,
@@ -36,12 +36,20 @@ node 'default'
             ensure => link,
             target => '/var/www/vhosts/moodle-dev.kent.ac.uk/sp/simplesamlphp/www';
 
+        '/var/www/vhosts/learninglocker-dev.kent.ac.uk/public':
+            ensure => link,
+            target => '/data/learninglocker/public';
+
         '/opt/remi/php56/root/etc/php-fpm.d/www.conf':
             ensure => absent;
 
         '/opt/remi/php56/root/etc/php-fpm.d/moodle-dev.kent.ac.uk.conf':
             ensure => present,
             source => 'puppet:///modules/webfarm/moodle-pool.conf';
+
+        '/opt/remi/php56/root/etc/php-fpm.d/learninglocker-dev.kent.ac.uk.conf':
+            ensure => present,
+            source => 'puppet:///modules/webfarm/learninglocker-pool.conf';
     }
 
     cron {

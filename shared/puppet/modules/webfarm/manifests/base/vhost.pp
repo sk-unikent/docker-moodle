@@ -1,4 +1,4 @@
-define webfarm::base::vhost($vhost = $title, $owner = 'w3admin', $writeable = 'w3moodle') {
+define webfarm::base::vhost($vhost = $title, $owner = 'w3admin', $writeable = 'w3moodle', $public = true) {
     file {
         "/var/www/vhosts/${vhost}":
             ensure => directory,
@@ -9,11 +9,6 @@ define webfarm::base::vhost($vhost = $title, $owner = 'w3admin', $writeable = 'w
             ensure => directory,
             require => File["/var/www/vhosts/${vhost}"],
             owner => $owner;
-
-        "/var/www/vhosts/${vhost}/public":
-            ensure => directory,
-            owner => $owner,
-            replace => false;
 
         [
             "/var/www/vhosts/${vhost}/writable/sessions",
@@ -27,5 +22,14 @@ define webfarm::base::vhost($vhost = $title, $owner = 'w3admin', $writeable = 'w
             ensure => directory,
             require => File["/var/www/vhosts/${vhost}/writable"],
             owner => $writeable;
+    }
+
+    if $public {
+        file {
+            "/var/www/vhosts/${vhost}/public":
+                ensure => directory,
+                owner => $owner,
+                replace => false;
+        }
     }
 }
