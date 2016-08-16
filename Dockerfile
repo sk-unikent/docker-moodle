@@ -13,7 +13,8 @@ RUN yum-config-manager --enable remi-php56 && \
     php56-php-soap php56-php-xmlrpc php56-php-process php56-php-mysqlnd \
     php56-php-mbstring php56-php-ldap php56-php-mcrypt php56-php-mssql \
     php56-php-pecl-memcache php56-php-pecl-memcached php56-php-pecl-solr2 \
-    php56-php-pecl-mongodb php56-php-pecl-redis php56-php-pecl-zip && yum clean all
+    php56-php-pecl-mongodb php56-php-pecl-mongo php56-php-pecl-redis php56-php-pecl-zip \
+    && yum clean all
 RUN ln -s /usr/bin/php56 /usr/bin/php && \
     ln -s /usr/bin/php56-cgi /usr/bin/php-cgi && \
     ln -s /usr/bin/php56-pear /usr/bin/php-pear && \
