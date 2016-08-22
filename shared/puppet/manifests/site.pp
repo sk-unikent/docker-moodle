@@ -20,6 +20,10 @@ node 'default'
             ensure => present,
             source => 'puppet:///modules/webfarm/learninglocker-dev.kent.ac.uk.conf';
 
+        '/var/www/vhosts/moodle-dev.kent.ac.uk/public/doc':
+            ensure => link,
+            target => '/data/doc';
+
         '/var/www/vhosts/moodle-dev.kent.ac.uk/public/current':
             ensure => link,
             target => '/data/current';
