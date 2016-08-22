@@ -5,7 +5,7 @@ class moodle::base {
     }
 
     user {
-        ['w3moodle', 'w3learninglocker', 'w3admin']:
+        ['w3moodle', 'w3admin']:
             ensure => 'present',
             managehome => true,
             groups => ['pkg'],
@@ -25,7 +25,5 @@ class moodle::base {
 
     webfarm::base::vhost {
         'moodle-dev.kent.ac.uk': ;
-        'learninglocker-dev.kent.ac.uk':
-            public => false;
     }
 }
