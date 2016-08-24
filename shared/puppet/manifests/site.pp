@@ -16,6 +16,10 @@ node 'default'
             ensure => present,
             source => 'puppet:///modules/webfarm/moodle-dev.kent.ac.uk.conf';
 
+        '/var/www/vhosts/moodle-dev.kent.ac.uk/public/doc':
+            ensure => link,
+            target => '/data/doc';
+
         '/var/www/vhosts/moodle-dev.kent.ac.uk/public/current':
             ensure => link,
             target => '/data/current';
@@ -24,10 +28,6 @@ node 'default'
             ensure => link,
             target => '/data/future';
 
-        '/var/www/vhosts/moodle-dev.kent.ac.uk/public/doc':
-            ensure => link,
-            target => '/data/doc';
-
         '/var/www/vhosts/moodle-dev.kent.ac.uk/public/cla':
             ensure => link,
             target => '/data/cla/public';
@@ -35,6 +35,10 @@ node 'default'
         '/var/www/vhosts/moodle-dev.kent.ac.uk/public/_sp':
             ensure => link,
             target => '/var/www/vhosts/moodle-dev.kent.ac.uk/sp/simplesamlphp/www';
+
+        '/var/www/vhosts/moodle-dev.kent.ac.uk/public/phpredmin':
+            ensure => link,
+            target => '/var/www/vhosts/moodle-dev.kent.ac.uk/phpredmin/public';
 
         '/etc/opt/remi/php70/php-fpm.d/www.conf':
             ensure => absent;

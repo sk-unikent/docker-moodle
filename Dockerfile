@@ -18,6 +18,8 @@ RUN ln -s /usr/bin/php70 /usr/bin/php && \
     ln -s /usr/bin/php70-cgi /usr/bin/php-cgi && \
     ln -s /usr/bin/php70-pear /usr/bin/php-pear && \
     ln -s /usr/bin/php70-phar /usr/bin/php-phar
+ADD ./shared/files/worker-phpredmin.conf /etc/supervisord.d/worker-phpredmin.conf
+ADD ./shared/phpredmin /var/www/vhosts/moodle-dev.kent.ac.uk/phpredmin
 ADD ./shared/simplesamlphp /var/www/vhosts/moodle-dev.kent.ac.uk/sp/simplesamlphp
 ADD ./shared/puppet /puppet
 RUN yum install -y puppet && \
