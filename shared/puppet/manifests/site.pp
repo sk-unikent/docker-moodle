@@ -3,6 +3,11 @@ node 'default'
     include moodle::base
     include supervisord
 
+    group {
+        'pkg':
+            ensure => 'present';
+    }
+
     service {
         ['nginx', 'crond', 'php70-php-fpm']:
             enable => true;
