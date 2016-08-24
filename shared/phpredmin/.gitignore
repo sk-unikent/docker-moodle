@@ -1,0 +1,5 @@
+*.swp
+*.swo
+*~
+logs/
+/nbproject/private/

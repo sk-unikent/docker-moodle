@@ -1,9 +1,4 @@
 class moodle::base {
-    group {
-        'pkg':
-            ensure => 'present';
-    }
-
     user {
         ['w3moodle', 'w3admin']:
             ensure => 'present',

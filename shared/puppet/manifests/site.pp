@@ -3,6 +3,19 @@ node 'default'
     include moodle::base
     include supervisord
 
+    group {
+        'pkg':
+            ensure => 'present';
+    }
+
+    user {
+        ['w3redmin']:
+            ensure => 'present',
+            managehome => true,
+            groups => ['pkg'],
+            require => Group['pkg'];
+    }
+
     service {
         ['nginx', 'crond', 'php56-php-fpm']:
             enable => true;
@@ -35,6 +48,10 @@ node 'default'
         '/var/www/vhosts/moodle-dev.kent.ac.uk/public/_sp':
             ensure => link,
             target => '/var/www/vhosts/moodle-dev.kent.ac.uk/sp/simplesamlphp/www';
+
+        '/var/www/vhosts/moodle-dev.kent.ac.uk/public/phpredmin':
+            ensure => link,
+            target => '/var/www/vhosts/moodle-dev.kent.ac.uk/phpredmin/public';
 
         '/opt/remi/php56/root/etc/php-fpm.d/www.conf':
             ensure => absent;
