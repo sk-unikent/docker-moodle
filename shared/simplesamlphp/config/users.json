@@ -17,6 +17,15 @@
       "unikentaccountType":"staff",
       "unikentdepartment": "IS Development"
    },
+   "blm":{
+      "password":"Password-1",
+      "uid":"blm",
+      "givenName":"Brian",
+      "sn":"Merritt",
+      "mail":"blm@kent.ac.uk",
+      "unikentaccountType":"staff",
+      "unikentdepartment": "IS Development"
+   },
    "jake":{
       "password":"Password-1",
       "uid":"jake",
