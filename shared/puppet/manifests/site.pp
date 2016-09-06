@@ -33,6 +33,10 @@ node 'default'
             ensure => link,
             target => '/data/doc';
 
+        '/var/www/vhosts/moodle-dev.kent.ac.uk/public/index.php':
+            ensure => link,
+            target => '/data/index.php';
+
         '/var/www/vhosts/moodle-dev.kent.ac.uk/public/current':
             ensure => link,
             target => '/data/current';
