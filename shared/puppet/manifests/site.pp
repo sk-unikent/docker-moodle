@@ -37,6 +37,10 @@ node 'default'
             ensure => link,
             target => '/data/future';
 
+        '/var/www/vhosts/moodle-dev.kent.ac.uk/public/mobile':
+            ensure => link,
+            target => '/data/mobile/www';
+
         '/var/www/vhosts/moodle-dev.kent.ac.uk/public/cla':
             ensure => link,
             target => '/data/cla/public';
