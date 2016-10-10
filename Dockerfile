@@ -7,17 +7,17 @@ RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm \
                    nginx ImageMagick aspell texlive-latex graphviz mimetex cronie python-setuptools \
                    && yum clean all
 RUN easy_install supervisor
-RUN yum-config-manager --enable remi-php70 && \
-    yum install -y php70 php70-php-fpm php70-php-opcache php70-php-cli \
-    php70-php-gd php70-php-pdo php70-php-xml php70-php-intl php70-php-pear \
-    php70-php-soap php70-php-xmlrpc php70-php-process php70-php-mysqlnd \
-    php70-php-mbstring php70-php-ldap php70-php-mcrypt php70-php-mssql \
-    php70-php-pecl-memcache php70-php-pecl-memcached php70-php-pecl-solr2 \
-    php70-php-pecl-mongodb php70-php-pecl-redis php70-php-pecl-zip && yum clean all
-RUN ln -s /usr/bin/php70 /usr/bin/php && \
-    ln -s /usr/bin/php70-cgi /usr/bin/php-cgi && \
-    ln -s /usr/bin/php70-pear /usr/bin/php-pear && \
-    ln -s /usr/bin/php70-phar /usr/bin/php-phar
+RUN yum-config-manager --enable remi-php71 && \
+    yum install -y php71 php71-php-fpm php71-php-opcache php71-php-cli \
+    php71-php-gd php71-php-pdo php71-php-xml php71-php-intl php71-php-pear \
+    php71-php-soap php71-php-xmlrpc php71-php-process php71-php-mysqlnd \
+    php71-php-mbstring php71-php-ldap php71-php-mcrypt php71-php-mssql \
+    php71-php-pecl-memcache php71-php-pecl-memcached php71-php-pecl-solr2 \
+    php71-php-pecl-mongodb php71-php-pecl-redis php71-php-pecl-zip && yum clean all
+RUN ln -s /usr/bin/php71 /usr/bin/php && \
+    ln -s /usr/bin/php71-cgi /usr/bin/php-cgi && \
+    ln -s /usr/bin/php71-pear /usr/bin/php-pear && \
+    ln -s /usr/bin/php71-phar /usr/bin/php-phar
 ADD ./shared/phpredmin /var/www/vhosts/moodle-dev.kent.ac.uk/phpredmin
 ADD ./shared/simplesamlphp /var/www/vhosts/moodle-dev.kent.ac.uk/sp/simplesamlphp
 ADD ./shared/puppet /puppet
