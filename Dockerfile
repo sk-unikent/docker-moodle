@@ -10,7 +10,7 @@ RUN easy_install supervisor
 RUN yum-config-manager --enable remi-php70 && \
     yum install -y php70 php70-php-fpm php70-php-opcache php70-php-cli \
     php70-php-gd php70-php-pdo php70-php-xml php70-php-intl php70-php-pear \
-    php70-php-soap php70-php-xmlrpc php70-php-process php70-php-mysqlnd \
+    php70-php-soap php70-php-xmlrpc php70-php-process php70-php-sqlsrv \
     php70-php-mbstring php70-php-ldap php70-php-mcrypt php70-php-mssql \
     php70-php-pecl-memcache php70-php-pecl-memcached php70-php-pecl-solr2 \
     php70-php-pecl-mongodb php70-php-pecl-redis php70-php-pecl-zip && yum clean all
