@@ -26,6 +26,15 @@
       "unikentaccountType":"staff",
       "unikentdepartment": "IS Development"
    },
+   "pf11":{
+      "password":"Password-1",
+      "uid":"pf11",
+      "givenName":"Pete",
+      "sn":"Frost",
+      "mail":"p.frost@kent.ac.uk",
+      "unikentaccountType":"staff",
+      "unikentdepartment": "IS Development"
+   },
    "jake":{
       "password":"Password-1",
       "uid":"jake",
