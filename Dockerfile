@@ -25,6 +25,17 @@ RUN yum install -y puppet && \
     puppet apply --modulepath=/puppet/modules /puppet/manifests/site.pp && \
     yum remove -y puppet && yum clean all
 
+RUN yum update -y && yum install -y wget nano git
+
+# Makes git use https by default
+RUN git config --global url."https://".insteadOf git://
+
+RUN cd /usr/lib \
+	&& git clone https://github.com/dagwieers/unoconv.git \
+	&& cp unoconv/unoconv /usr/bin 
+#	&& ln -s unoconv/unoconv /usr/bin/unoconv
+
+
 # Libreoffice - https://www.libreoffice.org/download/libreoffice-fresh/
 ENV LIBREOFFICE_VER 5.2.3
 ENV LIBREOFFICE_VER_MINOR .3
@@ -39,8 +50,6 @@ RUN wget http://linorg.usp.br/LibreOffice/libreoffice/stable/$LIBREOFFICE_VER/rp
 	&& yum clean all \
 	&& cd && rm -f LIBREOFFICEMD5 && rm -f LibreOffice_${LIBREOFFICE_VER}_Linux_x86-64_rpm.tar.gz \
 	&& rm -rf LibreOffice_${LIBREOFFICE_VER}${LIBREOFFICE_VER_MINOR}_Linux_x86-64_rpm
-
-RUN yum update -y && yum install -y nano
 
 RUN date > /etc/docker-release
 
