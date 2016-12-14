@@ -24,6 +24,24 @@ ADD ./shared/puppet /puppet
 RUN yum install -y puppet && \
     puppet apply --modulepath=/puppet/modules /puppet/manifests/site.pp && \
     yum remove -y puppet && yum clean all
+
+# Libreoffice - https://www.libreoffice.org/download/libreoffice-fresh/
+ENV LIBREOFFICE_VER 5.2.3
+ENV LIBREOFFICE_VER_MINOR .3
+
+RUN wget http://linorg.usp.br/LibreOffice/libreoffice/stable/$LIBREOFFICE_VER/rpm/x86_64/LibreOffice_${LIBREOFFICE_VER}_Linux_x86-64_rpm.tar.gz \
+	&& echo "06edfe30aebb00ff80738855ae22b01c  LibreOffice_${LIBREOFFICE_VER}_Linux_x86-64_rpm.tar.gz" > LIBREOFFICEMD5 \
+	&& RESULT=$(md5sum -c LIBREOFFICEMD5) \
+	&& echo ${RESULT} > ~/check-libreoffice-md5.txt \
+	&& tar xf LibreOffice_${LIBREOFFICE_VER}_Linux_x86-64_rpm.tar.gz \
+	&& cd LibreOffice_${LIBREOFFICE_VER}${LIBREOFFICE_VER_MINOR}_Linux_x86-64_rpm/RPMS \
+	&& yum -y install *.rpm \
+	&& yum clean all \
+	&& cd && rm -f LIBREOFFICEMD5 && rm -f LibreOffice_${LIBREOFFICE_VER}_Linux_x86-64_rpm.tar.gz \
+	&& rm -rf LibreOffice_${LIBREOFFICE_VER}${LIBREOFFICE_VER_MINOR}_Linux_x86-64_rpm
+
+RUN yum update -y && yum install -y nano
+
 RUN date > /etc/docker-release
 
 EXPOSE 22 80 443
