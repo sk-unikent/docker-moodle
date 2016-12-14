@@ -1,4 +1,4 @@
-FROM skylarkelty/centos:latest
+FROM kentis/centos:latest
 MAINTAINER "Skylar Kelty" <s.kelty@kent.ac.uk>
 ADD ./shared/files/remi.repo /etc/yum.repos.d/remi.repo
 ADD ./shared/files/nginx.repo /etc/yum.repos.d/nginx.repo
