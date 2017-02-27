@@ -29,6 +29,8 @@ RUN date > /etc/docker-release
 # Reinstall glibc-common to make sure the locale required for unit testing is installed
 RUN yum reinstall -q -y glibc-common
 RUN localedef --quiet -c -i /usr/share/i18n/locales/en_AU -f UTF-8 en_AU
+RUN localedef --quiet -c -i /usr/share/i18n/locales/en_GB -f UTF-8 en_GB
+RUN localedef --quiet -c -i /usr/share/i18n/locales/en_US -f UTF-8 en_US
 
 EXPOSE 22 80 443
 
