@@ -32,6 +32,9 @@ RUN localedef --quiet -c -i /usr/share/i18n/locales/en_AU -f UTF-8 en_AU
 RUN localedef --quiet -c -i /usr/share/i18n/locales/en_GB -f UTF-8 en_GB
 RUN localedef --quiet -c -i /usr/share/i18n/locales/en_US -f UTF-8 en_US
 
+# Support Moodle-perf-comparison
+RUN yum install -y git mariadb  && yum clean all
+
 EXPOSE 22 80 443
 
 CMD ["/usr/sbin/init"]
