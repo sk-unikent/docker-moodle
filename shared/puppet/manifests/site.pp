@@ -41,6 +41,10 @@ node 'default'
             ensure => link,
             target => '/data/moodle';
 
+        '/var/www/vhosts/moodle-dev.kent.ac.uk/public/moodle-performance-comparison':
+            ensure => link,
+            target => '/data/moodle-performance-comparison';
+
         '/var/www/vhosts/moodle-dev.kent.ac.uk/public/mobile':
             ensure => link,
             target => '/data/mobile/www';
