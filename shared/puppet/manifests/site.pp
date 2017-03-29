@@ -41,6 +41,10 @@ node 'default'
             ensure => link,
             target => '/data/moodle';
 
+        '/var/www/vhosts/moodle-dev.kent.ac.uk/public/moodleperf':
+            ensure => link,
+            target => '/data/moodle-performance-comparison/moodle';
+
         '/var/www/vhosts/moodle-dev.kent.ac.uk/public/moodle-performance-comparison':
             ensure => link,
             target => '/data/moodle-performance-comparison';
@@ -85,7 +89,7 @@ node 'default'
 
     supervisord::worker {
         'current':
-            command => '/usr/bin/php /var/www/vhosts/moodle-dev.kent.ac.uk/public/current/local/kent/cli/worker.php',
+            command => '/usr/bin/php /var/www/vhosts/moodle-dev.kent.ac.uk/public/current/admin/tool/adhoc/queue/redis/cli/worker.php',
             startsecs => 5;
         'future':
             command => '/usr/bin/php /var/www/vhosts/moodle-dev.kent.ac.uk/public/future/admin/tool/adhoc/queue/redis/cli/worker.php',
