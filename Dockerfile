@@ -13,7 +13,8 @@ RUN yum-config-manager --enable remi-php71 && \
     php71-php-soap php71-php-xmlrpc php71-php-process php71-php-mysqlnd \
     php71-php-mbstring php71-php-ldap php71-php-mcrypt php71-php-sqlsrv \
     php71-php-pecl-memcache php71-php-pecl-memcached php71-php-pecl-solr2 \
-    php71-php-pecl-mongodb php71-php-pecl-redis php71-php-pecl-zip && yum clean all
+    php71-php-pecl-mongodb php71-php-pecl-redis php71-php-pecl-zip php71-php-xdebug \
+    && yum clean all
 RUN ln -s /usr/bin/php71 /usr/bin/php && \
     ln -s /usr/bin/php71-cgi /usr/bin/php-cgi && \
     ln -s /usr/bin/php71-pear /usr/bin/php-pear && \
