@@ -6,6 +6,9 @@ ADD ./shared/files/supervisord.service /etc/systemd/system/multi-user.target.wan
 RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm \
                    nginx ImageMagick aspell texlive-latex graphviz mimetex cronie python-setuptools \
                    && yum clean all
+RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo | tee /etc/yum.repos.d/mssql-tools.repo
+RUN yum update
+RUN ACCEPT_EULA=Y yum install msodbcsql mssql-tools
 RUN easy_install supervisor
 RUN yum-config-manager --enable remi-php71 && \
     yum install -y php71 php71-php-fpm php71-php-opcache php71-php-cli \
