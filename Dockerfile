@@ -7,7 +7,7 @@ RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm \
                    nginx ImageMagick aspell texlive-latex graphviz mimetex cronie python-setuptools \
                    && yum clean all
 RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo | tee /etc/yum.repos.d/mssql-tools.repo
-RUN yum update
+RUN yum update -y
 RUN ACCEPT_EULA=Y yum install msodbcsql mssql-tools
 RUN easy_install supervisor
 RUN yum-config-manager --enable remi-php71 && \
