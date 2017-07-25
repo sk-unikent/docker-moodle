@@ -8,7 +8,7 @@ RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm \
                    && yum clean all
 RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo | tee /etc/yum.repos.d/mssql-tools.repo
 RUN yum update -y && yum clean all
-RUN ACCEPT_EULA=Y yum install -y msodbcsql mssql-tools && yum clean all
+RUN ACCEPT_EULA=Y yum install -y msodbcsql && yum clean all
 RUN easy_install supervisor
 RUN yum-config-manager --enable remi-php71 && \
     yum install -y php71 php71-php-fpm php71-php-opcache php71-php-cli \
