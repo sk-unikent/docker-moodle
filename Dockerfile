@@ -3,6 +3,11 @@ MAINTAINER "Skylar Kelty" <s.kelty@kent.ac.uk>
 ADD ./shared/files/remi.repo /etc/yum.repos.d/remi.repo
 ADD ./shared/files/nginx.repo /etc/yum.repos.d/nginx.repo
 ADD ./shared/files/supervisord.service /etc/systemd/system/multi-user.target.wants/supervisord.service
+RUN mkdir -p /etc/ssl/certs/
+RUN mkdir -p /etc/ssl/private/
+ADD ./shared/files/ssc /etc/ssl/certs/nginx-selfsigned.crt
+ADD ./shared/files/ssk /etc/ssl/private/nginx-selfsigned.key
+ADD ./shared/files/ssp /etc/ssl/certs/dhparam.pem
 RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm \
                    nginx ImageMagick aspell texlive-latex graphviz mimetex cronie python-setuptools \
                    && yum clean all
