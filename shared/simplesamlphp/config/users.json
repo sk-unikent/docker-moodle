@@ -26,12 +26,12 @@
       "unikentaccountType":"staff",
       "unikentdepartment": "IS Development"
    },
-   "jake":{
+   "db":{
       "password":"Password-1",
-      "uid":"jake",
-      "givenName":"Jake",
-      "sn":"Blatchford",
-      "mail":"jb624@kent.ac.uk",
+      "uid":"db",
+      "givenName":"Daniel",
+      "sn":"Bartlett",
+      "mail":"db@kent.ac.uk",
       "unikentaccountType":"staff",
       "unikentdepartment": "IS Development"
    },
