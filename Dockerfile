@@ -44,6 +44,10 @@ RUN localedef --quiet -c -i /usr/share/i18n/locales/en_US -f UTF-8 en_US
 # Support Moodle-perf-comparison
 RUN yum install -y git mariadb  && yum clean all
 
+# Support Snark dev.
+RUN curl -SsL https://raw.githubusercontent.com/dagwieers/unoconv/master/unoconv > /usr/local/bin/unoconv
+RUN chmod 0755 /usr/local/bin/unoconv
+
 EXPOSE 22 80 443
 
 CMD ["/usr/sbin/init"]
