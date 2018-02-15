@@ -45,6 +45,7 @@ RUN localedef --quiet -c -i /usr/share/i18n/locales/en_US -f UTF-8 en_US
 RUN yum install -y git mariadb  && yum clean all
 
 # Support Snark dev.
+RUN yum install -y libreoffice libreoffice-pyuno libreoffice-ure && yum clean all
 RUN curl -SsL https://raw.githubusercontent.com/dagwieers/unoconv/master/unoconv > /usr/local/bin/unoconv
 RUN chmod 0755 /usr/local/bin/unoconv
 
