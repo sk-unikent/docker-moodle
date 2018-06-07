@@ -2,6 +2,16 @@ node 'default'
 {
     include moodle::base
     include supervisord
+    
+    host {
+        'localhost':
+            ensure => 'present',
+            ip => '127.0.0.1',
+            host_aliases => [
+                'localhost',
+                'moodle-dev.kent.ac.uk'
+            ];
+    }
 
     group {
         'pkg':
