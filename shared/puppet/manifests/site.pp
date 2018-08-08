@@ -19,7 +19,7 @@ node 'default'
     }
 
     service {
-        ['nginx', 'crond', 'php71-php-fpm', 'postfix']:
+        ['nginx', 'crond', 'php72-php-fpm', 'postfix']:
             enable => true;
     }
 
@@ -79,10 +79,10 @@ node 'default'
             ensure => link,
             target => '/var/www/vhosts/moodle-dev.kent.ac.uk/phpredmin/public';
 
-        '/etc/opt/remi/php71/php-fpm.d/www.conf':
+        '/etc/opt/remi/php72/php-fpm.d/www.conf':
             ensure => absent;
 
-        '/etc/opt/remi/php71/php-fpm.d/moodle-dev.kent.ac.uk.conf':
+        '/etc/opt/remi/php72/php-fpm.d/moodle-dev.kent.ac.uk.conf':
             ensure => present,
             source => 'puppet:///modules/webfarm/moodle-pool.conf';
     }

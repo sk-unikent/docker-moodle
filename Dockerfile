@@ -8,25 +8,23 @@ RUN mkdir -p /etc/ssl/private/
 ADD ./shared/files/ssc /etc/ssl/certs/nginx-selfsigned.crt
 ADD ./shared/files/ssk /etc/ssl/private/nginx-selfsigned.key
 ADD ./shared/files/ssp /etc/ssl/certs/dhparam.pem
-RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm \
-                   nginx ImageMagick aspell texlive-latex graphviz mimetex cronie python-setuptools \
-                   && yum clean all
+RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm && yum clean all
 RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo | tee /etc/yum.repos.d/mssql-tools.repo
-RUN yum update -y && yum clean all
-RUN ACCEPT_EULA=Y yum install -y msodbcsql && yum clean all
+RUN yum-config-manager --enable remi-php72 && yum update -y && yum clean all
+RUN ACCEPT_EULA=Y yum install -y msodbcsql nginx ImageMagick aspell texlive-latex graphviz
+    mimetex cronie python-setuptools sendmail postfix \
+    php72 php72-php-fpm php72-php-opcache php72-php-cli \
+    php72-php-gd php72-php-pdo php72-php-xml php72-php-intl php72-php-pear \
+    php72-php-soap php72-php-xmlrpc php72-php-process php72-php-mysqlnd \
+    php72-php-mbstring php72-php-ldap php72-php-mcrypt php72-php-sqlsrv \
+    php72-php-pecl-memcache php72-php-pecl-memcached php72-php-pecl-solr2 \
+    php72-php-pecl-mongodb php72-php-pecl-redis php72-php-pecl-zip php72-php-xdebug \
+    php72-php-pecl-event && yum clean all
 RUN easy_install supervisor
-RUN yum-config-manager --enable remi-php71 && \
-    yum install -y php71 php71-php-fpm php71-php-opcache php71-php-cli \
-    php71-php-gd php71-php-pdo php71-php-xml php71-php-intl php71-php-pear \
-    php71-php-soap php71-php-xmlrpc php71-php-process php71-php-mysqlnd \
-    php71-php-mbstring php71-php-ldap php71-php-mcrypt php71-php-sqlsrv \
-    php71-php-pecl-memcache php71-php-pecl-memcached php71-php-pecl-solr2 \
-    php71-php-pecl-mongodb php71-php-pecl-redis php71-php-pecl-zip php71-php-xdebug \
-    php71-php-pecl-event sendmail postfix && yum clean all
-RUN ln -s /usr/bin/php71 /usr/bin/php && \
-    ln -s /usr/bin/php71-cgi /usr/bin/php-cgi && \
-    ln -s /usr/bin/php71-pear /usr/bin/php-pear && \
-    ln -s /usr/bin/php71-phar /usr/bin/php-phar
+RUN ln -s /usr/bin/php72 /usr/bin/php && \
+    ln -s /usr/bin/php72-cgi /usr/bin/php-cgi && \
+    ln -s /usr/bin/php72-pear /usr/bin/php-pear && \
+    ln -s /usr/bin/php72-phar /usr/bin/php-phar
 ADD ./shared/phpredmin /var/www/vhosts/moodle-dev.kent.ac.uk/phpredmin
 ADD ./shared/simplesamlphp /var/www/vhosts/moodle-dev.kent.ac.uk/sp/simplesamlphp
 ADD ./shared/puppet /puppet
