@@ -2,7 +2,7 @@ node 'default'
 {
     include moodle::base
     include supervisord
-    
+
     host {
         'localhost':
             ensure => 'present',
@@ -19,13 +19,17 @@ node 'default'
     }
 
     service {
-        ['nginx', 'crond', 'php71-php-fpm']:
+        ['nginx', 'crond', 'php71-php-fpm', 'postfix']:
             enable => true;
     }
 
     file {
         '/etc/nginx/conf.d/default.conf':
             ensure => absent;
+
+        '/etc/postfix/main.cf':
+            ensure => present,
+            source => 'puppet:///modules/webfarm/postfix.conf';
 
         '/etc/nginx/conf.d/moodle-dev.kent.ac.uk.conf':
             ensure => present,

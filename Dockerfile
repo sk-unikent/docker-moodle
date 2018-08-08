@@ -22,7 +22,7 @@ RUN yum-config-manager --enable remi-php71 && \
     php71-php-mbstring php71-php-ldap php71-php-mcrypt php71-php-sqlsrv \
     php71-php-pecl-memcache php71-php-pecl-memcached php71-php-pecl-solr2 \
     php71-php-pecl-mongodb php71-php-pecl-redis php71-php-pecl-zip php71-php-xdebug \
-    php71-php-pecl-event && yum clean all
+    php71-php-pecl-event sendmail postfix && yum clean all
 RUN ln -s /usr/bin/php71 /usr/bin/php && \
     ln -s /usr/bin/php71-cgi /usr/bin/php-cgi && \
     ln -s /usr/bin/php71-pear /usr/bin/php-pear && \
