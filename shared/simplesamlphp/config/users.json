@@ -8,12 +8,12 @@
       "unikentaccountType":"staff",
       "unikentdepartment": "IS Admin"
    },
-   "skylark":{
+   "jk546":{
       "password":"Password-1",
-      "uid":"skylark",
-      "givenName":"Skylar",
-      "sn":"Kelty",
-      "mail":"S.Kelty@kent.ac.uk",
+      "uid":"jk546",
+      "givenName":"James",
+      "sn":"Keavney",
+      "mail":"j.keavney@kent.ac.uk",
       "unikentaccountType":"staff",
       "unikentdepartment": "IS Development"
    },
