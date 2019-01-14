@@ -11,7 +11,7 @@ ADD ./shared/files/ssp /etc/ssl/certs/dhparam.pem
 RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm && yum clean all
 RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo | tee /etc/yum.repos.d/mssql-tools.repo
 RUN yum-config-manager --enable remi-php72 && yum update -y && yum clean all
-RUN ACCEPT_EULA=Y yum install -y msodbcsql nginx ImageMagick aspell texlive-latex graphviz
+RUN ACCEPT_EULA=Y yum install -y msodbcsql nginx ImageMagick aspell texlive-latex graphviz \
     mimetex cronie python-setuptools sendmail postfix \
     php72 php72-php-fpm php72-php-opcache php72-php-cli \
     php72-php-gd php72-php-pdo php72-php-xml php72-php-intl php72-php-pear \
