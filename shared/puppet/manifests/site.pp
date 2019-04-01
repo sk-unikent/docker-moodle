@@ -51,6 +51,18 @@ node 'default'
             ensure => link,
             target => '/data/future';
 
+        '/var/www/vhosts/moodle-dev.kent.ac.uk/public/current-feature':
+          ensure => link,
+          target => '/data/current-feature';
+
+        '/var/www/vhosts/moodle-dev.kent.ac.uk/public/next':
+          ensure => link,
+          target => '/data/next';
+
+        '/var/www/vhosts/moodle-dev.kent.ac.uk/public/next-feature':
+          ensure => link,
+          target => '/data/next-feature';
+
         '/var/www/vhosts/moodle-dev.kent.ac.uk/public/moodle':
             ensure => link,
             target => '/data/moodle';
